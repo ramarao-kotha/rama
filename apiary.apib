@@ -1,0 +1,52 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Coop
+
+Coop is a set of APIs for the Cooperative.  The first of these APIs will support the Colleague Recruitment - Stores' platform.
+
+## Lists of values to create requisition v0_3 [/lovs/requisitions/createRequisitionForm/1]
+
+### Get a set of values for the 'Create Requisition' form [GET]
+
+Return a set of values to prepopulate a form prior to user input.  Note, it is
+envisaged that the location of a store (address) can be derived from
+departmentNumber, as part of a different api call ('allDepartments').
+
++ Response 200 (application/json)
+
+        {
+             "requisitionsListOfValues": {
+                      "jobRole": [{
+                          "id": 1,
+                          "description": "Customer Team Leader"
+                      }, {
+                          "id": 2,
+                          "description": "Customer Team Member"
+                      }],
+                      "departmentNumber": 4005,
+                      "contractType": [{
+                          "id": 1,
+                          "jobType": "Permanent"
+                      }, {
+                          "id": 2,
+                          "jobType": "Secondment/Fixed Term/Temporary"
+                      }],
+                      "fullTimeOrPartTime": [{
+                          "id": 1,
+                          "fullTimeOrPartTime": "Full Time"
+                      }, {
+                          "id": 2,
+                          "fullTimeOrPartTime": "Part Time"
+                      }],
+                      "maxNumberVacancies": 20,
+                      "defaultContract": {
+                          "minMonths": 1,
+                          "maxMonths": 12
+                      },
+                      "defaultHours": {
+                          "minHoursPerWeek": 1,
+                          "maxHoursPerWeek": 39
+                          }
+                      }
+        }
